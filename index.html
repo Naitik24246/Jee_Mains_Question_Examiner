@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEE AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>JEE Question Explainer AI</h1>
+    <div class="card">
+      <label for="question">Enter JEE Question</label>
+      <textarea id="question" rows="4" placeholder="Type your JEE question..."></textarea>
+
+      <label for="answer">Enter Final Answer</label>
+      <input type="text" id="answer" placeholder="Final answer..." />
+
+      <button onclick="sendToAI()">Explain</button>
+
+      <div class="loader" id="loading">Processing...</div>
+
+      <div id="ai-response" class="response"></div>
+      <div id="difficulty" class="difficulty"></div>
+    </div>
+
+    <div class="history">
+      <h2>Session History</h2>
+      <div id="history-list"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
