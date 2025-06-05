@@ -7,6 +7,8 @@ from langchain_openai import ChatOpenAI
 from typing import List, Dict, Optional
 import re
 import logging
+from dotenv import load_dotenv
+import os
 
 app = FastAPI()
 
@@ -20,10 +22,13 @@ app.add_middleware(
 
 logging.basicConfig(level=logging.INFO)
 
+
+load_dotenv()
+
 model = ChatOpenAI(
-    model="deepseek/deepseek-r1-0528-qwen3-8b:free",
-    api_key="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",
-    base_url="https://openrouter.ai/api/v1",
+    model=os.getenv("MODEL_NAME"),
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url=os.getenv("OPENROUTER_BASE_URL"),
 )
 
 prompt_template = PromptTemplate.from_template("""
